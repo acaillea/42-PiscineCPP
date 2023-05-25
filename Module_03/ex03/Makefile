@@ -1,0 +1,58 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: acaillea <acaillea@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/18 16:50:48 by acaillea          #+#    #+#              #
+#    Updated: 2022/08/23 13:46:02 by acaillea         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# -.-.	Color code	-.-.-.-.-.
+
+C_DEFAUT		=	\033[0;39m
+C_ORANGE		=	\033[0;33m
+C_GREEN 		= 	\033[1;32m
+C_RED			= 	\033[0;31m
+
+#-.-.-.-.-.-.-.-.-.-.-.-.-.-.-
+
+NAME	= 	diamondTrap
+
+#-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-#
+
+SRCS	= 	main.cpp		\
+			ClapTrap.cpp	\
+			ScavTrap.cpp	\
+			FragTrap.cpp	\
+			DiamondTrap.cpp
+
+#-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-#
+
+CC		= c++
+FLAGS	= -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
+RM		= rm -rf
+PRI		= printf
+VEL		= sleep
+
+#-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-#
+
+all : ${NAME}
+
+${NAME} :
+	@${CC} ${FLAGS} ${SRCS} -o ${NAME}
+	@${PRI} "${C_ORANGE}Compiling ...\n${C_DEFAUT}"
+	@${VEL} 0.3
+	@${PRI} "${C_GREEN}$@ --> Successfully Build !\n${C_DEFAUT}"
+
+#-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-#
+
+clean :
+
+fclean : clean
+	@${RM} ${NAME}
+	@${PRI} "${C_RED}Exec file deleted.\n${C_DEFAUT}"
+
+re : fclean all
